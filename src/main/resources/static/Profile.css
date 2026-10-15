@@ -1,0 +1,746 @@
+/* =====================================
+   FINORA - MY PROFILE PAGE
+   Theme: Navy Blue + Teal
+===================================== */
+
+/* Global reset */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #eaf2ff;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(8, 19, 42, 0.88),
+            rgba(13, 49, 70, 0.78),
+            rgba(8, 105, 100, 0.64)
+        ),
+        url("/profile-background.jpeg") center center / cover no-repeat fixed;
+
+    background-color: #101827;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* =====================================
+   MAIN PAGE
+===================================== */
+
+.profile-page {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 30px 28px 24px;
+}
+
+/* =====================================
+   TOP NAVIGATION
+===================================== */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 42px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.brand-mark {
+    width: 23px;
+    height: 22px;
+    background: #35d6b0;
+    border-radius: 4px;
+    transform: skew(-13deg);
+    box-shadow: 0 0 16px rgba(53, 214, 176, 0.25);
+}
+
+.back-link {
+    color: #75f0d3;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: #ffffff;
+}
+
+/* =====================================
+   PAGE HEADING
+===================================== */
+
+.heading {
+    margin-bottom: 24px;
+}
+
+.eyebrow {
+    margin: 0;
+    color: #65f0ce;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.heading h1 {
+    margin: 8px 0;
+    color: #ffffff;
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.heading > p:last-child {
+    color: #d1deed;
+    line-height: 1.6;
+}
+
+/* =====================================
+   MAIN PROFILE CARD
+===================================== */
+
+.profile-card {
+    overflow: hidden;
+
+    background: rgba(17, 31, 53, 0.90);
+    border: 1px solid rgba(157, 196, 224, 0.23);
+    border-radius: 22px;
+
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.30);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+/* =====================================
+   PROFILE BANNER
+===================================== */
+
+.profile-banner {
+    height: 110px;
+
+    background: linear-gradient(
+        115deg,
+        #123e58,
+        #087f78,
+        #164b70
+    );
+}
+
+/* =====================================
+   PROFILE IDENTITY
+===================================== */
+
+.identity {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 0 34px 24px;
+    border-bottom: 1px solid rgba(200, 220, 240, 0.15);
+}
+
+.identity h2 {
+    margin: 8px 0 5px;
+    color: #ffffff;
+    font-size: 21px;
+    overflow-wrap: anywhere;
+}
+
+.identity p {
+    margin: 0;
+    color: #c0d0e2;
+    overflow-wrap: anywhere;
+}
+
+/* Initial avatar, if used */
+.avatar {
+    width: 76px;
+    height: 76px;
+    margin-top: -28px;
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border: 5px solid #142d43;
+    border-radius: 50%;
+    background: #15977c;
+    color: #ffffff;
+
+    font-size: 30px;
+    font-weight: 800;
+}
+
+/* Personal account badge */
+.account-badge {
+    margin-left: auto;
+    padding: 9px 12px;
+    flex-shrink: 0;
+
+    border: 1px solid rgba(53, 214, 176, 0.25);
+    border-radius: 20px;
+
+    background: rgba(53, 214, 176, 0.14);
+    color: #65f0ce;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* =====================================
+   PROFILE PHOTO
+===================================== */
+
+.avatar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    margin-top: -28px;
+}
+
+.profile-photo {
+    display: block;
+    width: 110px;
+    height: 110px;
+
+    border: 4px solid #35d6b0;
+    border-radius: 50%;
+
+    object-fit: cover;
+    background: #173e52;
+
+    box-shadow: 0 0 0 5px rgba(53, 214, 176, 0.12);
+}
+
+#profilePhoto {
+    object-fit: cover;
+}
+
+.change-photo-btn {
+    display: inline-block;
+    padding: 8px 14px;
+
+    border: 1px solid rgba(101, 240, 206, 0.3);
+    border-radius: 8px;
+
+    background: #173e52;
+    color: #76f2d4;
+
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.change-photo-btn:hover {
+    background: #20566a;
+    color: #ffffff;
+}
+
+/* =====================================
+   PROFILE CARD CONTENT
+===================================== */
+
+.card-content {
+    padding: 30px 34px;
+    color: #eaf2ff;
+}
+
+.section-heading,
+.logout-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.section-heading h3,
+.account-section h3,
+.logout-section h3 {
+    margin: 0 0 7px;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.section-heading p,
+.logout-section p {
+    margin: 0;
+    color: #c0d0e2;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =====================================
+   PROFILE FORM GRID
+===================================== */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 26px;
+}
+
+.form-grid label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    color: #dce9f7;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.form-grid input {
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    padding: 14px;
+
+    border: 1px solid #38536c;
+    border-radius: 10px;
+    outline: none;
+
+    background: rgba(7, 19, 37, 0.78);
+    color: #ffffff;
+}
+
+.form-grid input::placeholder,
+#passwordForm input::placeholder {
+    color: #91a5ba;
+}
+
+.form-grid input:focus {
+    border-color: #35d6b0;
+    box-shadow: 0 0 0 3px rgba(53, 214, 176, 0.15);
+    background: #102a40;
+}
+
+.form-grid input:disabled {
+    background: rgba(30, 48, 69, 0.8);
+    color: #b9cadd;
+    cursor: not-allowed;
+}
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+.outline-btn,
+.primary-btn,
+.logout-btn {
+    padding: 12px 17px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.outline-btn {
+    border: 1px solid #35c9aa;
+    background: transparent;
+    color: #70efd0;
+}
+
+.outline-btn:hover {
+    background: rgba(53, 214, 176, 0.12);
+}
+
+.primary-btn {
+    border: 0;
+    background: linear-gradient(135deg, #16a58a, #087d79);
+    color: #ffffff;
+}
+
+.primary-btn:hover {
+    background: linear-gradient(135deg, #20bd9d, #109b91);
+    transform: translateY(-1px);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+/* =====================================
+   MESSAGE STYLES
+===================================== */
+
+.message {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.message.error,
+.field-error {
+    color: #ff9b9b;
+}
+
+.message.success,
+.field-success {
+    color: #65f0b9;
+}
+
+.field-error {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.field-error:empty,
+.field-success:empty {
+    display: none;
+}
+
+.field-success {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* =====================================
+   ACCOUNT DETAILS SECTION
+===================================== */
+
+.account-section {
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(200, 220, 240, 0.16);
+}
+
+.account-section h3 {
+    margin: 0 0 10px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.account-section p {
+    margin: 0 0 22px;
+    color: #c0d0e2;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(200, 220, 240, 0.16);
+
+    color: #eaf2ff;
+    font-size: 14px;
+}
+
+.detail-row span {
+    color: #b6c9dd;
+}
+
+.detail-row strong {
+    color: #ffffff;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.active-status {
+    color: #65f0ce !important;
+}
+
+/* =====================================
+   CHANGE PASSWORD SECTION
+===================================== */
+
+#passwordForm {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 850px;
+}
+
+#passwordForm label {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    color: #dce9f7;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#passwordForm input {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    height: 48px;
+    padding: 0 16px;
+
+    border: 1px solid #38536c;
+    border-radius: 10px;
+    outline: none;
+
+    background: rgba(7, 19, 37, 0.78);
+    color: #ffffff;
+
+    font: inherit;
+    font-weight: 400;
+
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#passwordForm input:focus {
+    border-color: #35d6b0;
+    box-shadow: 0 0 0 3px rgba(53, 214, 176, 0.15);
+    background: #102a40;
+}
+
+/* Password input and show/hide button */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+#passwordForm .password-wrapper input {
+    width: 100%;
+    padding-right: 65px;
+}
+
+#passwordForm .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+
+    width: auto;
+    min-height: auto;
+    padding: 5px;
+
+    border: none;
+    background: transparent;
+    color: #65f0ce;
+
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#passwordForm .password-toggle:hover {
+    background: transparent;
+    color: #ffffff;
+}
+
+/* Password submit button */
+#passwordForm button:not(.password-toggle) {
+    grid-column: 1 / -1;
+    justify-self: start;
+
+    min-height: 48px;
+    padding: 0 24px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(135deg, #16a58a, #087d79);
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#passwordForm button:not(.password-toggle):hover {
+    background: linear-gradient(135deg, #20bd9d, #109b91);
+}
+
+#passwordForm button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* =====================================
+   LOGOUT SECTION
+===================================== */
+
+.logout-section {
+    margin-top: 28px;
+    padding: 22px;
+
+    border: 1px solid rgba(248, 113, 113, 0.25);
+    border-radius: 12px;
+
+    background: rgba(113, 40, 53, 0.16);
+}
+
+.logout-section p {
+    max-width: 600px;
+}
+
+.logout-btn {
+    flex-shrink: 0;
+    border: 1px solid #a85b65;
+    background: #2b1e2b;
+    color: #ffaaaa;
+}
+
+.logout-btn:hover {
+    background: #482530;
+    color: #ffffff;
+}
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer {
+    padding: 24px 0 0;
+    color: #c0d0e2;
+    text-align: center;
+    font-size: 12px;
+}
+
+/* Respect hidden elements */
+[hidden] {
+    display: none !important;
+}
+
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
+
+@media (max-width: 650px) {
+    .profile-page {
+        padding: 20px 14px;
+    }
+
+    .topbar {
+        margin-bottom: 28px;
+    }
+
+    .brand {
+        font-size: 25px;
+    }
+
+    .heading h1 {
+        font-size: 29px;
+    }
+
+    .profile-card {
+        border-radius: 16px;
+    }
+
+    .identity {
+        flex-wrap: wrap;
+        padding: 0 20px 22px;
+        gap: 12px;
+    }
+
+    .identity h2 {
+        font-size: 18px;
+    }
+
+    .account-badge {
+        margin-left: 0;
+    }
+
+    .card-content {
+        padding: 24px 20px;
+    }
+
+    .section-heading,
+    .logout-section {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        justify-content: flex-start;
+    }
+
+    #passwordForm {
+        grid-template-columns: 1fr;
+    }
+
+    #passwordForm button:not(.password-toggle) {
+        grid-column: 1;
+        width: 100%;
+    }
+
+    .detail-row {
+        align-items: flex-start;
+    }
+
+    .logout-btn {
+        width: 100%;
+    }
+}
+
+/* Smaller phones */
+@media (max-width: 380px) {
+    .profile-page {
+        padding: 16px 10px;
+    }
+
+    .brand {
+        font-size: 22px;
+    }
+
+    .back-link {
+        font-size: 12px;
+    }
+
+    .identity {
+        padding-right: 14px;
+        padding-left: 14px;
+    }
+
+    .card-content {
+        padding: 20px 14px;
+    }
+}

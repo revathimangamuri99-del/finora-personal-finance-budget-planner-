@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{--navy:#102442;--ink:#132748;--green:#149879;--green2:#20b995;--muted:#74829c;--line:#dce3ee;--white:#fff;--lavender:#edf0ff}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:'DM Sans',sans-serif;color:var(--ink)}
+body{font-size:14px}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+.auth-page{min-height:100vh}
+.brand{display:inline-flex;align-items:center;gap:12px;width:max-content;font:800 34px/1 'Manrope',sans-serif;letter-spacing:-1.4px;color:var(--navy)}
+.brand-mark{width:38px;height:38px;display:inline-grid;place-items:center;color:var(--green);font-size:35px;line-height:1;font-weight:800}
+.dot{color:var(--green)}
+/* LOGIN */
+.login-page{background:#fff}
+.login-layout{height:100vh;min-height:0;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.login-art-panel{background:radial-gradient(ellipse at 48% 66%,#193e65 0,#102b4c 43%,#0c1d34 100%);color:white;padding:clamp(36px,5vw,76px);display:flex;flex-direction:column;justify-content:center;overflow:hidden;position:relative}
+.login-art-panel:before{content:"";position:absolute;width:430px;height:430px;border:1px solid rgba(255,255,255,.07);border-radius:50%;right:-180px;top:-180px}
+.login-art-copy{position:relative;z-index:1;max-width:600px}
+.login-art-copy h1{font:800 clamp(30px,3vw,48px)/1.2 'Manrope',sans-serif;letter-spacing:-1.5px;margin:0 0 22px;color:#f7faff}
+.login-art-copy h1 span{color:#2ed2aa}
+.login-art-copy p{font-size:clamp(14px,1.2vw,18px);line-height:1.7;color:#d5e4f7;max-width:500px;margin:0}
+.login-art-wrap{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;flex:1;min-height:0;width:100%;margin-top:10px}
+.login-art-wrap img{display:block;width:100%;height:100%;max-height:none;object-fit:contain;object-position:center;mix-blend-mode:normal}
+.login-form-panel{display:flex;align-items:center;justify-content:center;padding:35px clamp(28px,5vw,88px);background:linear-gradient(140deg,#fff 0%,#fcfdff 100%)}
+.login-form-inner{width:min(490px,100%)}
+.login-form-inner .brand{margin-bottom:48px;font-size:40px}
+.eyebrow{display:inline-block;color:#138b70;background:#e0f7ef;border-radius:8px;padding:7px 13px;font-size:11px;font-weight:800;letter-spacing:1.2px;margin-bottom:14px}
+.login-form-inner h2{font:800 clamp(34px,3vw,46px)/1.1 'Manrope',sans-serif;letter-spacing:-1.2px;margin:0 0 10px;color:#102442}
+.intro{font-size:15px;line-height:1.6;color:var(--muted);margin:0 0 38px}
+.auth-form label:not(.terms-row){display:block;font-weight:700;color:#172b48;margin:0 0 9px;font-size:14px}
+.auth-form>input,.password-field input{width:100%;height:54px;border:1px solid var(--line);border-radius:11px;padding:0 17px;background:#fff;color:#142747;outline:none;transition:border-color .2s,box-shadow .2s}
+.auth-form>input{margin-bottom:24px}
+.auth-form input::placeholder{color:#8a98b1}
+.auth-form>input:focus,.password-field input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(20,152,121,.11)}
+.password-field{position:relative;margin-bottom:8px}
+.password-field input{padding-right:50px}
+.eye-button{position:absolute;right:9px;top:50%;transform:translateY(-50%);width:34px;height:34px;border:0;background:transparent;color:#63738f;cursor:pointer;font-size:19px}
+.forgot-row{text-align:right;margin:14px 0 27px}
+.forgot-row a,.switch-line a{color:#108b70;font-weight:700}
+.submit-button{width:100%;height:56px;border:0;border-radius:11px;background:linear-gradient(100deg,#159879,#118b70);color:#fff;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 7px 15px rgba(17,139,112,.16);transition:transform .2s,filter .2s}
+.submit-button:hover{filter:brightness(1.05);transform:translateY(-1px)}
+.or-divider{display:flex;align-items:center;gap:16px;color:#8a98b1;font-size:12px;font-weight:700;margin:34px 0 26px}
+.or-divider:before,.or-divider:after{content:"";height:1px;background:#e1e6ef;flex:1}
+.switch-line{text-align:center;color:#75829a;margin:0;font-size:14px}
+.switch-line a{margin-left:4px}
+.form-message{min-height:0;margin:7px 0;font-size:12px;line-height:1.4}
+.form-message:empty{display:none}
+.form-message.error{color:#c64151}.form-message.success{color:#118263}
+.small-note{display:none}
+.mobile-brand{display:none}
+/* SIGN UP */
+.signup-page{height:100vh;min-height:0;overflow:hidden;background:radial-gradient(ellipse at 50% 48%,#fff 0,#eef0ff 64%,#dce4ff 100%);padding:clamp(12px,2.2vw,34px);display:grid;place-items:center;box-sizing:border-box}
+.signup-card{width:min(1500px,100%);height:100%;min-height:0;max-height:none;display:grid;grid-template-columns:minmax(390px,.88fr) minmax(0,1.12fr);gap:clamp(20px,2.8vw,44px);padding:clamp(20px,2.4vw,38px);border:4px solid rgba(255,255,255,.9);border-radius:32px;background:rgba(255,255,255,.96);box-shadow:0 25px 65px rgba(64,84,150,.16);overflow:hidden}
+.signup-form-panel{width:100%;max-width:510px;min-width:0;margin:auto}
+.signup-form-panel .brand{font-size:30px;margin-bottom:clamp(12px,1.6vh,20px)}
+.signup-form-panel .brand-mark{width:32px;height:32px;font-size:30px}
+.form-heading h1{font:800 clamp(25px,2.25vw,35px)/1.12 'Manrope',sans-serif;letter-spacing:-1.2px;color:#102442;margin:0 0 12px}
+.form-heading p{font-size:clamp(12px,.95vw,15px);line-height:1.4;color:#687995;margin:0 0 clamp(10px,1.5vh,17px)}
+.signup-form-panel form>label:not(.terms-row){display:block;font-size:12px;font-weight:700;color:#263957;margin:clamp(6px,1vh,10px) 0 4px}
+.signup-form-panel form>input,.signup-form-panel .password-field input{height:clamp(36px,4.7vh,44px);border-radius:10px;font-size:12px}
+.signup-form-panel form>input{margin-bottom:0}
+.signup-form-panel .password-field{margin-bottom:0}
+.signup-form-panel .password-field input{padding-right:44px}
+.signup-form-panel .terms-row{display:flex;align-items:center;gap:8px;margin:clamp(8px,1.2vh,12px) 0 8px;font-size:11px;color:#4d5d79}
+.terms-row input{width:17px;height:17px;accent-color:var(--green);flex-shrink:0}
+.terms-row a{color:#138d72;font-weight:700}
+.signup-submit{height:clamp(42px,5.5vh,49px);margin-top:1px}
+.signup-form-panel .switch-line{margin-top:clamp(10px,1.5vh,15px);font-size:12px;white-space:nowrap}
+.signup-art-panel{position:relative;min-width:0;min-height:0;border-radius:27px;background:radial-gradient(ellipse at 50% 40%,#fff 0%,#f1f3ff 62%,#e3e8ff 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;padding:12px 14px 16px}
+.signup-art-panel:before,.signup-art-panel:after{content:"";position:absolute;border-radius:50%;background:rgba(188,202,255,.27);pointer-events:none}
+.signup-art-panel:before{width:300px;height:300px;right:-140px;top:-170px}
+.signup-art-panel:after{width:250px;height:250px;left:-155px;bottom:-165px}
+.signup-art-wrap{position:relative;z-index:1;width:100%;height:72%;flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
+.signup-art-wrap img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+.signup-art-copy{position:relative;z-index:1;text-align:center;margin-top:8px;max-width:520px}
+.signup-art-copy h2{font:800 clamp(20px,2.1vw,31px)/1.25 'Manrope',sans-serif;letter-spacing:-.7px;color:#102442;margin:0}
+.signup-art-copy h2 span{color:#139878}
+@media(max-width:1050px){
+ .login-layout{grid-template-columns:.95fr 1.05fr}
+ .login-art-panel{padding:36px}
+ .login-form-panel{padding:30px}
+ .signup-card{grid-template-columns:minmax(360px,.95fr) minmax(0,1.05fr);gap:24px;padding:28px}
+}
+@media(max-width:760px){
+ .login-layout{height:auto;min-height:100vh;overflow:visible;display:flex;flex-direction:column}
+ .login-art-panel{min-height:310px;padding:30px 24px 18px}
+ .login-art-copy h1{font-size:30px}
+ .login-art-copy p{font-size:14px}
+ .login-art-wrap{height:210px;flex:none;margin-top:0}
+ .login-art-wrap img{max-height:220px}
+ .login-form-panel{padding:32px 24px 40px}
+ .login-form-inner .brand{display:none}
+ .intro{margin-bottom:25px}
+ .auth-form>input{margin-bottom:18px}
+ .signup-page{height:auto;min-height:100vh;overflow:visible;padding:12px;display:block}
+ .signup-card{height:auto;min-height:0;max-height:none;display:flex;flex-direction:column;padding:24px 20px;border-radius:24px;gap:22px}
+ .signup-form-panel{max-width:520px}
+ .signup-form-panel .brand{margin-bottom:24px}
+ .form-heading h1{font-size:30px}
+ .signup-art-panel{min-height:350px;padding:10px 12px 22px}
+ .signup-art-wrap{height:300px;flex:none}
+ .signup-art-copy h2{font-size:22px}
+ .signup-form-panel .switch-line{white-space:normal}
+}
+@media(max-height:800px) and (min-width:761px){
+ .signup-page{padding:12px}
+ .signup-card{padding:18px 26px;gap:24px}
+ .signup-form-panel .brand{margin-bottom:12px}
+ .form-heading h1{font-size:clamp(24px,2vw,31px);margin-bottom:8px}
+ .form-heading p{margin-bottom:10px}
+ .signup-form-panel form>label:not(.terms-row){margin:6px 0 4px}
+ .signup-form-panel form>input,.signup-form-panel .password-field input{height:38px}
+ .signup-form-panel .terms-row{margin:8px 0 7px}
+ .signup-submit{height:44px}
+ .signup-form-panel .switch-line{margin-top:10px}
+ .signup-art-copy h2{font-size:clamp(19px,1.8vw,26px)}
+}
+@media(max-height:700px) and (min-width:761px){
+ .login-art-panel{padding-top:28px;padding-bottom:28px}
+ .login-art-copy h1{font-size:32px;margin-bottom:12px}
+ .login-art-wrap img{max-height:360px}
+ .login-form-inner .brand{margin-bottom:25px}
+ .intro{margin-bottom:22px}
+ .auth-form>input{height:47px;margin-bottom:17px}
+ .password-field input{height:47px}
+ .forgot-row{margin:10px 0 16px}
+ .submit-button{height:49px}
+ .or-divider{margin:22px 0 17px}
+ .signup-card{min-height:0}
+}/* SIGNUP: Bigger and clearer field labels */
+.signup-form-panel .auth-form > label:not(.terms-row) {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+/* Signup input text and placeholder */
+.signup-form-panel .auth-form > input,
+.signup-form-panel .auth-form .password-field input {
+    font-size: 14px;
+}
+
+/* Placeholder text */
+.signup-form-panel .auth-form input::placeholder {
+    font-size: 14px;
+}
+
+/* Make field names easier to read on smaller screens */
+@media (max-width: 760px) {
+    .signup-form-panel .auth-form > label:not(.terms-row) {
+        font-size: 15px;
+    }
+}/* Forgot Password link */
+.forgot-row {
+    display: flex;
+    justify-content: flex-end;
+    margin: 8px 0 18px;
+}
+
+.forgot-row a {
+    color: #119b80;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.forgot-row a:hover {
+    color: #0d806b;
+    text-decoration: underline;
+}

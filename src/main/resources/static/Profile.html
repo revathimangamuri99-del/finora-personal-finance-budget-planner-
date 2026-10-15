@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | Finora</title>
+    <link rel="stylesheet" href="/profile.css">
+    <script src="/profile.js" defer></script>
+</head>
+<body>
+    <main class="profile-page">
+        <header class="topbar">
+            <a class="brand" href="/index.html">
+                <span class="brand-mark"></span> Finora
+            </a>
+            <a class="back-link" href="/index.html">← Dashboard</a>
+        </header>
+
+        <section class="heading">
+            <p class="eyebrow">YOUR ACCOUNT</p>
+            <h1>My Profile</h1>
+            <p>Manage your personal information and account details.</p>
+        </section>
+
+        <section class="profile-card">
+            <div class="profile-banner"></div>
+
+            <div class="identity">
+                <div class="avatar-container">
+    <img
+        src="/profile.jpeg"
+        alt="Profile Picture"
+        class="profile-photo"
+        id="profilePhoto"
+    >
+
+    <label for="photoInput" class="change-photo-btn">
+        Change Photo
+    </label>
+
+    <input
+        type="file"
+        id="photoInput"
+        accept="image/*"
+        hidden
+    >
+</div>
+                <div>
+                    <h2 id="displayName">Loading profile...</h2>
+                    <p id="displayEmail"></p>
+                </div>
+                <span class="account-badge">Personal Account</span>
+            </div>
+
+            <div class="card-content">
+                <div class="section-heading">
+                    <div>
+                        <h3>Personal Information</h3>
+                        <p>Keep your account details up to date.</p>
+                    </div>
+                    <button type="button" id="editButton" class="outline-btn">
+                        Edit Profile
+                    </button>
+                </div>
+
+                <form id="profileForm">
+                    <div class="form-grid">
+                        <label>
+                            Full Name
+                            <input id="fullName" name="fullName"
+                                   type="text" required minlength="2" disabled>
+                        </label>
+
+                        <label>
+                            Email Address
+                            <input id="email" name="email"
+                                   type="email" required disabled>
+                        </label>
+                    </div>
+
+                    <p id="message" class="message" role="status"></p>
+
+                    <div class="form-actions" id="formActions" hidden>
+                        <button type="button" id="cancelButton"
+                                class="outline-btn">Cancel</button>
+                        <button type="submit" class="primary-btn">
+                            Save Changes
+                        </button>
+                    </div>
+                </form>
+                <div class="account-section">
+    <h3>Change Password</h3>
+    <p>Update your password to keep your account secure.</p>
+
+    <form id="passwordForm">
+        <label>
+    Current Password
+    <div class="password-wrapper">
+        <input type="password" id="currentPassword"
+               name="currentPassword" required
+               autocomplete="current-password">
+        <button type="button" class="password-toggle"
+                data-target="currentPassword">Show</button>
+    </div>
+    <small id="currentPasswordError" class="field-error"></small>
+</label>
+
+<label>
+    New Password
+    <div class="password-wrapper">
+        <input type="password" id="newPassword"
+               name="newPassword" required minlength="8"
+               autocomplete="new-password">
+        <button type="button" class="password-toggle"
+                data-target="newPassword">Show</button>
+    </div>
+    <small id="newPasswordError" class="field-error"></small>
+</label>
+
+<label>
+    Confirm New Password
+    <div class="password-wrapper">
+        <input type="password" id="confirmPassword"
+               name="confirmPassword" required minlength="8"
+               autocomplete="new-password">
+        <button type="button" class="password-toggle"
+                data-target="confirmPassword">Show</button>
+    </div>
+    <small id="confirmPasswordError" class="field-error"></small>
+    <small id="passwordSuccess" class="field-success"></small>
+</label>
+
+        <button type="submit" class="primary-btn">
+            Change Password
+        </button>
+    </form>
+</div>
+
+                <div class="account-section">
+                    <h3>Account Details</h3>
+                    <div class="detail-row">
+                        <span>Account type</span>
+                        <strong>Personal Finance</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span>Account status</span>
+                        <strong class="active-status">Active</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span>Password</span>
+                        <strong>••••••••</strong>
+                    </div>
+                </div>
+
+                <div class="logout-section">
+                    <div>
+                        <h3>Sign out</h3>
+                        <p>Log out of your Finora account on this browser.</p>
+                    </div>
+                    <button type="button" id="logoutButton"
+                            class="logout-btn">Log Out</button>
+                </div>
+            </div>
+        </section>
+
+        <footer>© Finora · Take control of your finances.</footer>
+    </main>
+</body>
+</html>

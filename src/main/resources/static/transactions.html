@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finora | Transactions</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+<div class="app-layout">
+
+    <aside class="sidebar" id="sidebar">
+        <a class="brand" href="index.html">
+            <span class="brand-icon"><i data-lucide="wallet"></i></span>
+            <span>finora<span class="brand-dot">.</span></span>
+        </a>
+
+        <p class="nav-label">WORKSPACE</p>
+
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Overview</span>
+            </a>
+
+            <a href="transactions.html" class="nav-link active">
+                <i data-lucide="arrow-left-right"></i>
+                <span>Transactions</span>
+            </a>
+
+            <a href="index.html#analytics" class="nav-link">
+                <i data-lucide="chart-no-axes-combined"></i>
+                <span>Analytics</span>
+            </a>
+
+            <a href="budgets.html" class="nav-link">
+                <i data-lucide="target"></i>
+                <span>Budgets</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="help-card">
+                <div class="help-icon"><i data-lucide="lightbulb"></i></div>
+                <h3>Build better habits</h3>
+                <p>Small steps today lead to a healthier financial future.</p>
+            </div>
+
+            <div class="profile" id="sidebarProfile">
+                <div class="avatar" id="profileInitials">MF</div>
+                <div class="profile-info">
+                    <strong id="sidebarProfileName">My Finances</strong>
+                    <span>Personal account</span>
+                </div>
+                <button type="button" class="profile-menu-button"
+                        id="profileMenuButton" aria-label="Open profile menu">
+                    <i data-lucide="more-horizontal"></i>
+                </button>
+                <div class="profile-dropdown" id="profileDropdown" hidden>
+                    <a href="/profile.html">Go to Profile</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div class="topbar-left">
+                <div>
+                    <p class="eyebrow">YOUR FINANCIAL SPACE</p>
+                    <h1>Transactions</h1>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+                <div class="date-pill">
+                    <i data-lucide="calendar-days"></i>
+                    <span id="currentDate">Today</span>
+                </div>
+
+                <button class="primary-button" id="addTransactionButton">
+                    <i data-lucide="plus"></i>
+                    Add transaction
+                </button>
+            </div>
+        </header>
+
+        <section class="welcome-row">
+            <div>
+                <h2>Every transaction, in one place.</h2>
+                <p>Add, search, update, and manage your income and expenses.</p>
+            </div>
+        </section>
+
+        <section class="summary-grid">
+            <article class="summary-card">
+                <div class="card-top">
+                    <span class="card-label">Total income</span>
+                    <span class="card-icon income-icon">
+                        <i data-lucide="trending-up"></i>
+                    </span>
+                </div>
+                <h2 id="pageTotalIncome">₹0.00</h2>
+                <div class="card-foot positive">Money received</div>
+            </article>
+
+            <article class="summary-card">
+                <div class="card-top">
+                    <span class="card-label">Total expenses</span>
+                    <span class="card-icon expense-icon">
+                        <i data-lucide="trending-down"></i>
+                    </span>
+                </div>
+                <h2 id="pageTotalExpenses">₹0.00</h2>
+                <div class="card-foot negative">Money spent</div>
+            </article>
+
+            <article class="summary-card balance-card">
+                <div class="card-top">
+                    <span class="card-label">Balance</span>
+                    <span class="card-icon balance-icon">
+                        <i data-lucide="wallet"></i>
+                    </span>
+                </div>
+                <h2 id="pageBalance">₹0.00</h2>
+                <div class="card-foot">Income minus expenses</div>
+            </article>
+        </section>
+
+        <section class="panel transactions-panel">
+            <div class="panel-heading transactions-heading">
+                <div>
+                    <h3>All transactions</h3>
+                    <p>Search and manage your financial activity.</p>
+                </div>
+                <span class="panel-chip" id="transactionCount">0 transactions</span>
+            </div>
+
+            <div class="table-toolbar">
+                <label class="search-box">
+                    <i data-lucide="search"></i>
+                    <input type="search" id="searchInput"
+                           placeholder="Search transactions..."
+                           aria-label="Search transactions">
+                </label>
+
+                <select id="typeFilter" class="filter-select"
+                        aria-label="Filter by transaction type">
+                    <option value="ALL">All transactions</option>
+                    <option value="INCOME">Income</option>
+                    <option value="EXPENSE">Expenses</option>
+                </select>
+            </div>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>TRANSACTION</th>
+                            <th>CATEGORY</th>
+                            <th>DATE</th>
+                            <th>AMOUNT</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactionTableBody">
+                        <tr>
+                            <td colspan="5" class="loading-cell">
+                                Loading transactions...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-footer">
+                <span id="filteredCount">0 transactions shown</span>
+                <span>Finora transactions</span>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <span>© <span id="currentYear"></span> Finora</span>
+            <span>Make every rupee count ♥</span>
+        </footer>
+    </main>
+</div>
+
+<!-- Add/Edit Transaction Modal -->
+<div class="modal-backdrop" id="transactionModal" aria-hidden="true">
+    <section class="transaction-modal" role="dialog" aria-modal="true"
+             aria-labelledby="modalTitle">
+        <div class="modal-heading">
+            <div>
+                <p class="eyebrow">YOUR MONEY, YOUR CHOICE</p>
+                <h2 id="modalTitle">Add transaction</h2>
+                <p>Enter your transaction details.</p>
+            </div>
+            <button class="icon-button" id="closeModalButton"
+                    type="button" aria-label="Close dialog">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+
+        <form id="transactionForm">
+            <div class="type-switch">
+                <label class="type-option income-option">
+                    <input type="radio" name="type" value="INCOME" checked>
+                    <span><i data-lucide="trending-up"></i> Income</span>
+                </label>
+
+                <label class="type-option expense-option">
+                    <input type="radio" name="type" value="EXPENSE">
+                    <span><i data-lucide="trending-down"></i> Expense</span>
+                </label>
+            </div>
+
+            <label class="form-label" for="title">Transaction name</label>
+            <input class="form-control" id="title" name="title"
+                   maxlength="100" placeholder="e.g. Monthly salary" required>
+
+            <div class="form-row">
+                <div>
+                    <label class="form-label" for="amount">Amount (₹)</label>
+                    <input class="form-control" id="amount" name="amount"
+                           type="number" min="0.01" step="0.01"
+                           placeholder="0.00" required>
+                </div>
+
+                <div>
+                    <label class="form-label" for="category">Category</label>
+                    <select class="form-control" id="category"
+                            name="category" required>
+                        <option value="Salary">Salary</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Education">Education</option>
+                        <option value="Health">Health</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Investment">Investment</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <label class="form-label" for="transactionDate">Date</label>
+            <input class="form-control" id="transactionDate"
+                   name="transactionDate" type="date" required>
+
+            <label class="form-label" for="description">
+                Note <span class="optional">(optional)</span>
+            </label>
+            <textarea class="form-control" id="description" name="description"
+                      rows="3" maxlength="500"
+                      placeholder="Add a little detail..."></textarea>
+
+            <p class="form-error" id="formError" role="alert"></p>
+
+            <div class="modal-actions">
+                <button type="button" class="outline-button" id="cancelButton">
+                    Cancel
+                </button>
+                <button type="submit" class="primary-button" id="saveButton">
+                    <i data-lucide="check"></i> Save transaction
+                </button>
+            </div>
+        </form>
+    </section>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="transactions.js"></script>
+</body>
+</html>

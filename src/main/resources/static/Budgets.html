@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finora | Budgets</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .budget-page {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 24px;
+        }
+
+        .budget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .budget-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 28px;
+            padding: 20px;
+            border-radius: 14px;
+            background: rgb(148, 200, 125);
+            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+        }
+
+        .budget-form input,
+        .budget-form select {
+            flex: 1;
+            min-width: 150px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font: inherit;
+        }
+
+        .budget-form button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #6b4eff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .budget-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .budget-card {
+            padding: 22px;
+            border-radius: 14px;
+            background: white;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+        }
+
+        .budget-card h3 {
+            margin-top: 0;
+            text-transform: capitalize;
+        }
+
+        .budget-card p {
+            color: #666;
+        }
+
+        .budget-progress {
+            height: 9px;
+            margin: 14px 0;
+            overflow: hidden;
+            background: #eee;
+            border-radius: 10px;
+        }
+
+        .budget-progress div {
+            height: 100%;
+            width: 0;
+            background: #6b4eff;
+            transition: width 0.3s;
+        }
+
+        .budget-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .budget-actions button {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            background: white;
+            cursor: pointer;
+        }
+        /* Remove unnecessary page scrolling */
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+/* Fit budget page inside the screen */
+.budget-page {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto !important;
+    padding: 75px 24px 20px;
+}
+
+/* Reduce header spacing */
+.budget-header {
+    margin-bottom: 16px;
+    gap: 10px;
+}
+
+/* Compact budget form */
+.budget-form {
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    gap: 10px;
+}
+
+/* Compact budget cards */
+.budget-grid {
+    gap: 14px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.budget-card {
+    padding: 16px;
+}
+
+.budget-card h3 {
+    margin-bottom: 8px;
+}
+
+.budget-progress {
+    margin: 10px 0;
+}
+
+.budget-actions {
+    margin-top: 10px;
+}
+
+/* Keep modal usable */
+.budget-modal {
+    overflow-y: auto;
+}
+
+.budget-modal-content {
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* Smaller screens */
+@media (max-width: 768px) {
+    .budget-page {
+        padding: 75px 16px 16px;
+    }
+
+    .budget-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .budget-grid {
+        grid-template-columns: 1fr;
+    }
+}
+        /* Edit Budget Modal */
+.budget-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(5, 15, 30, 0.65);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.budget-modal.show {
+    display: flex;
+}
+
+.budget-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    padding: 28px;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+}
+
+.budget-modal-content h2 {
+    margin-top: 0;
+    color: #102b46;
+}
+
+.budget-modal-content > p {
+    color: #667085;
+}
+
+.budget-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#editBudgetForm {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+}
+
+#editBudgetForm input,
+#editBudgetForm select {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.budget-modal-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.budget-modal-actions button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#updateBudgetButton {
+    background: #087f8c;
+    color: white;
+}
+
+#cancelBudgetEdit {
+    background: #e9eef3;
+    color: #183047;
+}
+
+@media (max-width: 480px) {
+    .budget-modal-content {
+        padding: 24px 18px;
+    }
+}
+
+        .budget-message {
+            margin: 15px 0;
+        }
+        /* Finora budget page background */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            rgba(8, 25, 48, 0.35),
+            rgba(8, 25, 48, 0.35)
+        ),
+        url("/finora-budget-bg.jpeg") center center / 100% 100% no-repeat fixed;
+}
+
+/* Finora logo at top-left */
+.finora-logo {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: #ffffff;
+    font-size: 27px;
+    font-weight: 700;
+    text-decoration: none;
+    z-index: 10;
+}
+
+/* Keep budget content readable */
+.budget-page {
+    position: relative;
+    margin-top: 75px;
+}
+
+.budget-header h1,
+.budget-header p,
+.budget-header a {
+    color: #ffffff;
+}
+
+.budget-form,
+.budget-card {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(8px);
+}
+
+        @media (max-width: 600px) {
+            .budget-page {
+                padding: 15px;
+            }
+
+            .budget-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<!-- Edit Budget Modal -->
+<div id="editBudgetModal" class="budget-modal">
+    <div class="budget-modal-content">
+        <button type="button" id="closeBudgetModal"
+                class="budget-modal-close">&times;</button>
+
+        <h2>Edit Budget</h2>
+        <p>Update your budget details</p>
+
+        <form id="editBudgetForm" class="budget-form">
+            <input type="hidden" id="editBudgetId">
+
+            <select id="editCategory" required>
+                <option value="">Choose category</option>
+                <option value="Food">Food</option>
+                <option value="Travel">Travel</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Bills">Bills</option>
+                <option value="Education">Education</option>
+                <option value="Health">Health</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <input type="number" id="editAmount"
+                   placeholder="Budget amount (₹)"
+                   min="0.01" step="0.01" required>
+
+            <input type="month" id="editBudgetMonth" required>
+
+            <div class="budget-modal-actions">
+                <button type="submit" id="updateBudgetButton">
+                    Update Budget
+                </button>
+                <button type="button" id="cancelBudgetEdit">
+                    Cancel
+                </button>
+            </div>
+        </form>
+
+        <p id="editBudgetMessage" role="status"></p>
+    </div>
+</div>
+    <main class="budget-page">
+        <header class="budget-header">
+            <div>
+                <h1>Budget Planner</h1>
+                <p>Plan your monthly spending and stay in control.</p>
+            </div>
+            <a href="index.html">← Back to Dashboard</a>
+        </header>
+
+        <form id="budgetForm" class="budget-form">
+            <input type="hidden" id="budgetId">
+
+            <select id="category" required>
+                <option value="">Choose category</option>
+                <option value="Food">Food</option>
+                <option value="Travel">Travel</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Bills">Bills</option>
+                <option value="Education">Education</option>
+                <option value="Health">Health</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <input
+                type="number"
+                id="amount"
+                placeholder="Budget amount (₹)"
+                min="0.01"
+                step="0.01"
+                required
+            >
+
+            <input type="month" id="budgetMonth" required>
+
+            <button type="submit" id="saveBudgetButton">
+                Add Budget
+            </button>
+        </form>
+
+        <p id="budgetMessage" class="budget-message" role="status"></p>
+
+        <section id="budgetGrid" class="budget-grid">
+            <p>Loading budgets...</p>
+        </section>
+    </main>
+
+    <script src="budgets.js"></script>
+</body>
+</html>

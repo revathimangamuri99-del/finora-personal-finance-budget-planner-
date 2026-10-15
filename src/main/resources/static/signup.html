@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | Finora</title>
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body class="auth-page signup-page">
+  <main class="signup-card">
+    <section class="signup-form-panel">
+      <a class="brand" href="index.html" aria-label="Finora home"><span class="brand-mark" aria-hidden="true">▰</span><span>Finora</span></a>
+      <div class="form-heading">
+        <h1>Start managing your money today</h1>
+        <p>Create your Finora account and take control<br class="desktop-break"> of your finances.</p>
+      </div>
+      <form id="signupForm" class="auth-form" novalidate>
+        <label for="fullName">Full Name</label>
+        <input id="fullName" name="fullName" type="text" placeholder="Enter your full name" autocomplete="name" minlength="2" required>
+        <label for="signupEmail">Email Address</label>
+        <input id="signupEmail" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+        <label for="signupPassword">Password</label>
+        <div class="password-field">
+          <input id="signupPassword" name="password" type="password" placeholder="Create a password" autocomplete="new-password" minlength="8" required>
+          <button type="button" class="eye-button" data-target="signupPassword" aria-label="Show password">◉</button>
+        </div>
+        <label for="confirmPassword">Confirm Password</label>
+        <div class="password-field">
+          <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm your password" autocomplete="new-password" minlength="8" required>
+          <button type="button" class="eye-button" data-target="confirmPassword" aria-label="Show password">◉</button>
+        </div>
+        <label class="terms-row"><input type="checkbox" id="agreeTerms" required><span>I agree to the <a href="#" id="termsLink">Terms &amp; Conditions</a></span></label>
+        <p class="form-message" id="signupMessage" role="status" aria-live="polite"></p>
+        <button class="submit-button signup-submit" type="submit">Create Account <span aria-hidden="true">→</span></button>
+      </form>
+      <p class="switch-line">Already have an account? <a href="login.html">Login</a></p>
+    </section>
+    <section class="signup-art-panel">
+      <div class="signup-art-wrap"><img src="signup-illustration.png" alt="Illustration of a person planning finances with coins, a wallet, charts and a piggy bank"></div>
+      <div class="signup-art-copy"><h2>Managing your budget is the key<br>to <span>financial freedom.</span></h2></div>
+    </section>
+  </main>
+  <script src="auth.js"></script>
+</body>
+</html>
